@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>TASKS</h1>
+    <a href="/create">Create a new ToDo</a>
+    {% for todo in todos %}
+
+        <div class="todo">
+        <p> {{ todo['title'] }} <b>{{ todo['description'] }}</b> {{todo['completed']}} </p>
+
+        <form  method="POST" 
+               action="{{ url_for('todo_task.delete_task', id=todo['_id'])}}">
+
+            <input 
+            type="submit"
+            value="Delete ToDo"
+            onclick="return confirm('Are you sure you want to delete this Task?')">
+    
+        </form>
+        <form action="/{{todo['_id']}}/update/">
+
+           <input 
+            type="submit"
+            value="Edit ToDo">
+    
+        </form>
+        </div>
+    {% endfor %}
+
+    
+
+{% endblock %}

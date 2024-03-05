@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <form action="" method="POST">
+
+        <label for="title">Title</label>
+        <p><input type="text" name="title" placeholder="Write your To Do Title" required></p>
+        <label for="description">Description</label>
+        <p><input type="text" name="description" placeholder="Write your description" required></p>
+        <label for="completed">Completed</label>
+        <p><select name="completed" id="completed" required>
+
+            <option value="True">Completed</option>
+            <option value="False">Uncompleted</option>
+
+        </select></p>
+
+        <input type="submit">
+
+    </form>
+
+    
+
+{% endblock %}
